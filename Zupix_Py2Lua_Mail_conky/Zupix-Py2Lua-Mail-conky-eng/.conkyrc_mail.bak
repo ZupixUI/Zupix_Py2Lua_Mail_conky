@@ -1,0 +1,92 @@
+conky.config = {
+
+    -- GENERAL & WINDOW
+
+    background              = true,                 -- (true/false) Runs Conky as a background process.
+    use_xft                 = true,                 -- (true/false) Enables font anti-aliasing using XFT.
+    xftalpha                = 1.0,                  -- (0.0–1.0) Text transparency; 0.0 = fully transparent, 1.0 = fully visible.
+    font = 'Noto:size=12',                          -- Default font (name + size).
+    update_interval         = 0.1,                  -- (number) Time in seconds between data updates.
+    total_run_times         = 0,                    -- (0 = infinite, X = stop after X seconds).
+
+    -- CONKY WINDOW
+
+    own_window              = true,                 -- (true/false) Whether Conky runs as a separate window.
+    own_window_type         = 'normal',             -- Window type:
+    own_window_title        = 'Conky_Mail',         --   'normal'    – classic, standard window,
+                                                    --   'desktop'   – embedded in desktop background, non-interactive,
+                                                    --   'dock'      – pinned like a toolbar,
+                                                    --   'panel'     – similar to dock, various support,
+                                                    --   'override'  – no decorations, ignores window manager.
+
+    own_window_transparent  = true,                 -- (true/false) Transparent background (requires compositor).
+    own_window_argb_visual  = true,                 -- (true/false) Enables ARGB alpha channel for transparency.
+
+    -- Parameter that sets Conky window transparency (0 = fully transparent).
+    own_window_argb_value   = 0,                    -- (0–255) Transparency level: 0 = fully transparent, 255 = fully opaque.
+    own_window_colour       = '#000000',            -- Background color if own_window_transparent = false.
+
+    own_window_hints        = 'undecorated,sticky,below,skip_taskbar,skip_pager',
+                                                    -- Window hints (comma-separated):
+                                                    --   'undecorated'   – no window borders/decorations,
+                                                    --   'sticky'        – visible on all desktops,
+                                                    --   'below'         – always below other windows,
+                                                    --   'skip_taskbar'  – don't show in taskbar,
+                                                    --   'skip_pager'    – don't show in workspace switcher.
+
+    double_buffer           = true,                 -- (true/false) Enables double buffering – reduces flickering.
+
+    -- STYLE & COLORS
+
+    default_color           = '#ffffff',            -- Default color (white).
+    default_shade_color     = '#000000',            -- Text shade color.
+    default_outline_color   = '#000000',            -- Text outline color.
+
+    draw_shades             = true,                 -- (true/false) Draw shadows under text.
+    draw_outline            = false,                -- (true/false) Draw outline on text.
+    draw_borders            = false,                -- (true/false) Borders around text.
+    draw_graph_borders      = false,                -- (true/false) Borders around graphs.
+
+    color1                  = '#ff5555',            -- ${color1} – red (e.g. alerts).
+    color2                  = '#50fa7b',            -- ${color2} – green (e.g. status OK).
+    color3                  = '#f1fa8c',            -- ${color3} – yellow (e.g. warnings).
+    color4                  = '#bd93f9',            -- ${color4} – purple (e.g. headers).
+
+    -- DIMENSIONS & POSITIONING
+
+    minimum_width           = 900,                  -- Minimum window width (pixels). 800
+    minimum_height          = 680,                  -- Minimum window height (pixels). 600
+--  maximum_width           = 900,                  -- Maximum window width (pixels). 900
+    alignment               = 'bottom_right',
+
+    gap_x                   = 5,                    -- Distance from left/right edge of screen (pixels).
+    gap_y                   = 5,                    -- Distance from top/bottom edge of screen (pixels).
+
+    -- PERFORMANCE & DATA SAMPLING
+
+    no_buffers              = true,                 -- (true/false) Ignore RAM cache in memory display.
+    cpu_avg_samples         = 2,                    -- Number of samples for CPU usage average.
+    diskio_avg_samples      = 2,                    -- Number of samples for disk I/O average.
+    net_avg_samples         = 2,                    -- Number of samples for network transfer average.
+
+    -- FORMATTING, UTF-8, SPECIAL CHARACTERS
+
+    override_utf8_locale    = true,                 -- (true/false) Force UTF-8 support (for special characters, etc).
+    uppercase               = false,                -- (true/false) true = all text uppercase.
+    use_spacer              = 'none',               -- Column alignment.
+
+    short_units             = false,                -- (true/false) Short units (e.g. 1.5k instead of 1536B).
+    text_buffer_size        = 2048,                 -- Maximum length of rendered text.
+
+    -- NETWORK INTERFACES
+
+    if_up_strictness        = 'address',            -- Criteria for network interface being active.
+
+    -- LUA, PLUGINS & EXTERNAL FUNCTIONS
+    
+    lua_load = '/home/przemek_mint/Pulpit/Zupix-Py2Lua-Mail-conky-eng-v1.0.0-beta1/lua/e-mail.lua',
+    lua_draw_hook_post = 'draw_mail_indicator',
+};
+
+conky.text = [[
+]];
